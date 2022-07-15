@@ -2431,6 +2431,7 @@ GameObject:
   - component: {fileID: 1822103297}
   - component: {fileID: 1822103296}
   - component: {fileID: 1822103295}
+  - component: {fileID: 1822103298}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2510,7 +2511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822103292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648b425ed88ae954c995e0dd2a906a31, type: 3}
   m_Name: 
@@ -2563,6 +2564,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1822103298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822103292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef6aab1a9e4bc443a3d5aa0ed750558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844412468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1999863221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2825,8 +2838,8 @@ MonoBehaviour:
   obstalceBlock: {fileID: 7347419734624979078, guid: 700e01a855574264bb9e02130a7fe760, type: 3}
   itemBlock: {fileID: 7347419734624979078, guid: 580c3d53a4eb5294f90e7d1e1ea7a441, type: 3}
   numberOfWins: 1
-  numberOfObstacles: 3
-  numberOfItems: 2
+  numberOfObstacles: 8
+  numberOfItems: 4
 --- !u!4 &1999863222
 Transform:
   m_ObjectHideFlags: 0
