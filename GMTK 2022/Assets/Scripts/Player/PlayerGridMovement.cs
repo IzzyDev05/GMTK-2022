@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class PlayerGridMovement : MonoBehaviour
 {
+    public enum PlayerNumber { player1, player2 };
+
     [SerializeField] private int translateValue = 1;
+    public PlayerNumber playerNumber;
 
     private void Update() {
         GridMovement();
@@ -22,7 +25,7 @@ public class PlayerGridMovement : MonoBehaviour
             transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
         }
     }
-    
+
     private int ChooseRandomTranslate() {
         var translate = translateValue;
         var rand = Random.Range(0, 100);
