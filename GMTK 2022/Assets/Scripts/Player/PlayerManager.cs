@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player1;
-    [SerializeField] private GameObject player2;
+    public GameObject Player1;
+    public GameObject Player2;
 
     private GridSystem gridSystem;
     private List<GameObject> gridPoints = new List<GameObject>();
@@ -27,9 +27,9 @@ public class PlayerManager : MonoBehaviour
             var rand = Random.Range(0, gridPoints.Count);
 
             if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
-                var p1 = Instantiate(player1, gridPoints[rand].transform.position, Quaternion.identity);
+                var p1 = Instantiate(Player1, gridPoints[rand].transform.position, Quaternion.identity);
                 p1.gameObject.name = "Player1";
-                player1 = p1;
+                Player1 = p1;
             }
         }
 
@@ -37,9 +37,9 @@ public class PlayerManager : MonoBehaviour
             var rand = Random.Range(0, gridPoints.Count);
 
             if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
-                var p2 = Instantiate(player2, gridPoints[rand].transform.position, Quaternion.identity);
+                var p2 = Instantiate(Player2, gridPoints[rand].transform.position, Quaternion.identity);
                 p2.gameObject.name = "Player2";
-                player2 = p2;
+                Player2 = p2;
             }
         }
     }
@@ -55,12 +55,12 @@ public class PlayerManager : MonoBehaviour
 
     private void SwitchPlayers(RaycastHit2D hit) {
         if (hit.collider.gameObject.GetComponent<PlayerGridMovement>().playerNumber == PlayerGridMovement.PlayerNumber.player2) {
-            player1.GetComponent<PlayerGridMovement>().enabled = false;
-            player2.GetComponent<PlayerGridMovement>().enabled = true;
+            Player1.GetComponent<PlayerGridMovement>().enabled = false;
+            Player2.GetComponent<PlayerGridMovement>().enabled = true;
         }
         else {
-            player1.GetComponent<PlayerGridMovement>().enabled = true;
-            player2.GetComponent<PlayerGridMovement>().enabled = false;
+            Player1.GetComponent<PlayerGridMovement>().enabled = true;
+            Player2.GetComponent<PlayerGridMovement>().enabled = false;
         }
     }
 }

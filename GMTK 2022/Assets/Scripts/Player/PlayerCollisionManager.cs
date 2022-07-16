@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerCollisionManager : MonoBehaviour
 {
+    [HideInInspector] public bool hasWon = false;
     [SerializeField] private int numberOfLives = 3;
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -11,7 +12,7 @@ public class PlayerCollisionManager : MonoBehaviour
                 other.gameObject.SetActive(false);
                 break;
             case "WinBlock":
-                print("You won!");
+                hasWon = true;
                 this.gameObject.SetActive(false);
                 break;
         }
