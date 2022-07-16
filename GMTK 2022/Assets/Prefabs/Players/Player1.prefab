@@ -140,13 +140,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269238091399918024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cef6aab1a9e4bc443a3d5aa0ed750558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translateValue: 1
   playerNumber: 0
+  randomizeMovement: 1
+  translateValue: 1
 --- !u!114 &3737546448433550422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,4 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasWon: 0
+  isDead: 0
+  hitParticles: {fileID: 4408242534782427896, guid: db44b7242e80ce1478bd528b7d3d01b9, type: 3}
+  itemParticles: {fileID: 4408242534782427896, guid: c99c8a261f3a00746a7124464bcaa605, type: 3}
+  winParticles: {fileID: 4408242534782427896, guid: 9acfd3c45268e484ebca5873c85116f1, type: 3}
   numberOfLives: 3

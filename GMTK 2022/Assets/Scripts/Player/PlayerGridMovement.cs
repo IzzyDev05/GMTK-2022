@@ -3,11 +3,15 @@ using UnityEngine;
 public class PlayerGridMovement : MonoBehaviour
 {
     public enum PlayerNumber { player1, player2 };
+    public PlayerNumber playerNumber;
     [HideInInspector] public bool randomizeMovement = true;
 
     [SerializeField] private int translateValue = 1;
-    public PlayerNumber playerNumber;
+    private AudioManager audioManager;
 
+    private void Start() {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Update() {
         GridMovement();
@@ -22,29 +26,37 @@ public class PlayerGridMovement : MonoBehaviour
         if (!randomizeMovement) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 transform.Translate(new Vector3(0, 1, 0));
+                audioManager.Play("MoveSound");
             } 
             else if (Input.GetKeyDown(KeyCode.S)) {
                 transform.Translate(new Vector3(0, -1, 0));
+                audioManager.Play("MoveSound");
             } 
             else if (Input.GetKeyDown(KeyCode.A)) {
                 transform.Translate(new Vector3(-1, 0, 0));
+                audioManager.Play("MoveSound");
             } 
             else if (Input.GetKeyDown(KeyCode.D)) {
                 transform.Translate(new Vector3(1, 0, 0));
+                audioManager.Play("MoveSound");
             }
         }
         else {
             if (Input.GetKeyDown(KeyCode.W)) {
                 transform.Translate(new Vector3(0, ChooseRandomTranslate(), 0));
+                audioManager.Play("MoveSound");
             }
             else if (Input.GetKeyDown(KeyCode.S)) {
                 transform.Translate(new Vector3(0, ChooseRandomTranslate(), 0));
+                audioManager.Play("MoveSound");
             }
             else if (Input.GetKeyDown(KeyCode.A)) {
                 transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
+                audioManager.Play("MoveSound");
             }
             else if (Input.GetKeyDown(KeyCode.D)) {
                 transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
+                audioManager.Play("MoveSound");
             }
         }
     }

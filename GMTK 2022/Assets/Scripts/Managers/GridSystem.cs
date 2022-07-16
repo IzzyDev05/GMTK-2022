@@ -44,13 +44,6 @@ public class GridSystem : MonoBehaviour
         for (int i = 0; i < numberOfItems; i++) {
             randSelect = Random.Range(0, gridPoints.Count);
             var point = gridPoints[randSelect];
-
-            /*
-            var obj = Instantiate(itemBlock, point.transform.position, point.transform.rotation, point.transform);
-            gridPoints.Remove(gridPoints[randSelect]);
-            obj.gameObject.name = "ItemBlock";
-            */
-
             specificItemSpawner.SpawnItem(point);
         }
     }
