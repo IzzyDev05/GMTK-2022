@@ -48,8 +48,10 @@ public class PlayerManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
 
-        if (hit.collider.gameObject.tag == "Player") {
-            SwitchPlayers(hit);
+        if (hit.collider != null) {
+            if (hit.collider.gameObject.tag == "Player") {
+                SwitchPlayers(hit);
+            }
         }
     }
 
