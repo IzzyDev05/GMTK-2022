@@ -27,13 +27,15 @@ public class GridSystem : MonoBehaviour
             randSelect = Random.Range(0, gridPoints.Count);
             var point = gridPoints[randSelect];
             var obj = Instantiate(winBlock, point.transform.position, point.transform.rotation, point.transform);
-            obj.gameObject.name = "DefaultBlock";
+            gridPoints.Remove(gridPoints[randSelect]);
+            obj.gameObject.name = "WinBlock";
         }
 
         for (int i = 0; i < numberOfObstacles; i++) {
             randSelect = Random.Range(0, gridPoints.Count);
             var point = gridPoints[randSelect];
             var obj = Instantiate(obstalceBlock, point.transform.position, point.transform.rotation, point.transform);
+            gridPoints.Remove(gridPoints[randSelect]);
             obj.gameObject.name = "ObstalceBlock";
         }
 
@@ -41,6 +43,7 @@ public class GridSystem : MonoBehaviour
             randSelect = Random.Range(0, gridPoints.Count);
             var point = gridPoints[randSelect];
             var obj = Instantiate(itemBlock, point.transform.position, point.transform.rotation, point.transform);
+            gridPoints.Remove(gridPoints[randSelect]);
             obj.gameObject.name = "ItemBlock";
         }
     }

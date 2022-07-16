@@ -7,22 +7,45 @@ public class PlayerGridMovement : MonoBehaviour
     [SerializeField] private int translateValue = 1;
     public PlayerNumber playerNumber;
 
+    private bool randomizeMovement = true;
+
     private void Update() {
         GridMovement();
+        DiscretePositions();
     }
 
     private void GridMovement() {
-        if (Input.GetKeyDown(KeyCode.W)) {
-            transform.Translate(new Vector3(0, ChooseRandomTranslate(), 0));
+        if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.L)) {
+            randomizeMovement = !randomizeMovement;
         }
-        else if (Input.GetKeyDown(KeyCode.S)) {
-            transform.Translate(new Vector3(0, ChooseRandomTranslate(), 0));
+
+        if (!randomizeMovement) {
+            if (Input.GetKeyDown(KeyCode.W)) {
+                transform.Translate(new Vector3(0, 1, 0));
+            } 
+            else if (Input.GetKeyDown(KeyCode.S)) {
+                transform.Translate(new Vector3(0, -1, 0));
+            } 
+            else if (Input.GetKeyDown(KeyCode.A)) {
+                transform.Translate(new Vector3(-1, 0, 0));
+            } 
+            else if (Input.GetKeyDown(KeyCode.D)) {
+                transform.Translate(new Vector3(1, 0, 0));
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.A)) {
-            transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
-        }
-        else if (Input.GetKeyDown(KeyCode.D)) {
-            transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
+        else {
+            if (Input.GetKeyDown(KeyCode.W)) {
+                transform.Translate(new Vector3(0, ChooseRandomTranslate(), 0));
+            }
+            else if (Input.GetKeyDown(KeyCode.S)) {
+                transform.Translate(new Vector3(0, ChooseRandomTranslate(), 0));
+            }
+            else if (Input.GetKeyDown(KeyCode.A)) {
+                transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
+            }
+            else if (Input.GetKeyDown(KeyCode.D)) {
+                transform.Translate(new Vector3(ChooseRandomTranslate(), 0, 0));
+            }
         }
     }
 
@@ -38,5 +61,14 @@ public class PlayerGridMovement : MonoBehaviour
         }
 
         return translate;
+    }
+
+    private void DiscretePositions() {
+        Vector3 playerPos = gameObject.transform.position;
+        
+        int discPosX = Mathf.RoundToInt(playerPos.x);
+        int discPosY = Mathf.RoundToInt(playerPos.y);
+
+        gameObject.transform.position = new Vector3(discPosX, discPosY, 0);
     }
 }

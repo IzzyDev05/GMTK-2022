@@ -28,14 +28,17 @@ public class PlayerManager : MonoBehaviour
 
             if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
                 var p1 = Instantiate(player1, gridPoints[rand].transform.position, Quaternion.identity);
+                p1.gameObject.name = "Player1";
                 player1 = p1;
             }
         }
+
         for (int i = 0; i < 1; i++) {
             var rand = Random.Range(0, gridPoints.Count);
 
             if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
                 var p2 = Instantiate(player2, gridPoints[rand].transform.position, Quaternion.identity);
+                p2.gameObject.name = "Player2";
                 player2 = p2;
             }
         }
