@@ -61,6 +61,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitBeforeProgressing: 2
   waitBeforeRestarting: 2
+  levelLostPanel: {fileID: 0}
+  levelWonPanel: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &528659973811960671
 MonoBehaviour:
   m_ObjectHideFlags: 0

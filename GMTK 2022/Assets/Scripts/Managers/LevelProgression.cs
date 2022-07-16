@@ -6,34 +6,40 @@ public class LevelProgression : MonoBehaviour
 {
     [SerializeField] float waitBeforeProgressing = 2f;
     [SerializeField] float waitBeforeRestarting = 2f;
+    [SerializeField] GameObject levelLostPanel;
+    [SerializeField] GameObject levelWonPanel;
 
     private PlayerManager playerManager;
-    private GameObject player1;
-    private GameObject player2;
+    [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
 
     private void Start() {
+        levelLostPanel.SetActive(false);
+        levelWonPanel.SetActive(false);
+
         playerManager = FindObjectOfType<PlayerManager>();
-        player1 = playerManager.Player1;
-        player2 = playerManager.Player2;
     }
 
     private void Update() {
+        player1 = playerManager.Player1;
+        player2 = playerManager.Player2;
+        
         if (player1.GetComponent<PlayerCollisionManager>().hasWon && player2.GetComponent<PlayerCollisionManager>().hasWon) {
             StartCoroutine(LevelWon());
         }
 
-        if (player1.GetComponent<PlayerCollisionManager>().isDead || player2.GetComponent<PlayerCollisionManager>().isDead) {
+        if (PlayerCollisionManager.IsDead) {
             StartCoroutine(LevelLost());
         }
     }
 
     private IEnumerator LevelWon() {
         yield return new WaitForSeconds(waitBeforeProgressing);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        levelWonPanel.SetActive(true);
     }
 
     private IEnumerator LevelLost() {
         yield return new WaitForSeconds(waitBeforeRestarting);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        levelLostPanel.SetActive(true);
     }
 }

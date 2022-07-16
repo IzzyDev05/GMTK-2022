@@ -13,7 +13,7 @@ public class CamShake : MonoBehaviour
         else if (rand == 1) {
             camAnim.SetTrigger("shake2");
         } 
-        else if (rand == 3) {
+        else if (rand == 2) {
             camAnim.SetTrigger("shake3");
         }
     }

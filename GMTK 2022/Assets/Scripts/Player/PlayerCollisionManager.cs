@@ -30,17 +30,20 @@ public class PlayerCollisionManager : MonoBehaviour
                 playerGrid.randomizeMovement = false;
                 audioManager.Play("NormalMovement");
                 PlayItemParticles();
+                camShake.ShakeCamera();
                 other.gameObject.SetActive(false);
                 break;
             case "Invincible":
                 numberOfLives = 500;
                 PlayItemParticles();
+                camShake.ShakeCamera();
                 audioManager.Play("Invincible");
                 other.gameObject.SetActive(false);
                 break;
             case "AddLife":
                 numberOfLives++;
                 PlayItemParticles();
+                camShake.ShakeCamera();
 
                 var rand = Random.Range(0, 10);
                 if (rand <= 5) {
@@ -55,14 +58,16 @@ public class PlayerCollisionManager : MonoBehaviour
             case "RemoveLife":
                 numberOfLives--;
                 PlayHitParticles();
+                camShake.ShakeCamera();
                 audioManager.Play("Hurt2");
                 other.gameObject.SetActive(false);
                 break;
             case "WinBlock":
                 hasWon = true;
                 PlayWinParticless();
+                camShake.ShakeCamera();
                 audioManager.Play("LevelWin");
-                this.gameObject.SetActive(false);
+                DisablePlayer();
                 break;
         }
     }
@@ -79,8 +84,8 @@ public class PlayerCollisionManager : MonoBehaviour
                 audioManager.Play("Hurt2");
             }
 
-            camShake.ShakeCamera();
             PlayHitParticles();
+            camShake.ShakeCamera();
         }
     }
 

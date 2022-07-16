@@ -6,42 +6,76 @@ public class PlayerManager : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
 
+    private bool player1Spawned = false;
+    private bool player2Spawned = false;
     private GridSystem gridSystem;
     private List<GameObject> gridPoints = new List<GameObject>();
 
     private void Start() {
         gridSystem = FindObjectOfType<GridSystem>();
-        gridPoints = gridSystem.gridPoints;
-
-        SpawnPlayers();
+        gridPoints = gridSystem.gridPoints;   
     }
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
             CastRay();
         }
+
+        if (!player1Spawned || !player2Spawned) {
+            SpawnPlayers();
+        }
     }
 
     private void SpawnPlayers() {
-        for (int i = 0; i < 1; i++) {
+        if (!player1Spawned) {
+            for (int i = 0; i < 1; i++) {
+                var rand = Random.Range(0, gridPoints.Count);
+
+                if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
+                    var p1 = Instantiate(Player1, gridPoints[rand].transform.position, Quaternion.identity);
+                    p1.gameObject.name = "Player1";
+                    Player1 = p1;
+                    player1Spawned = true;
+                }
+            }
+        }
+
+        if (!player2Spawned) {
+            for (int i = 0; i < 1; i++) {
+                var rand = Random.Range(0, gridPoints.Count);
+
+                if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
+                    var p2 = Instantiate(Player2, gridPoints[rand].transform.position, Quaternion.identity);
+                    p2.gameObject.name = "Player2";
+                    Player2 = p2;
+                    player2Spawned = true;
+                }
+            }
+        }
+
+        /*
+        if (!player1Spawned) {
             var rand = Random.Range(0, gridPoints.Count);
 
             if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
                 var p1 = Instantiate(Player1, gridPoints[rand].transform.position, Quaternion.identity);
                 p1.gameObject.name = "Player1";
                 Player1 = p1;
+                player1Spawned = true;
             }
         }
 
-        for (int i = 0; i < 1; i++) {
+        if (!player2Spawned) {
             var rand = Random.Range(0, gridPoints.Count);
 
             if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
                 var p2 = Instantiate(Player2, gridPoints[rand].transform.position, Quaternion.identity);
                 p2.gameObject.name = "Player2";
                 Player2 = p2;
+                player2Spawned = true;
             }
         }
+        */
     }
 
     private void CastRay() {
