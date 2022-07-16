@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025f2ef8c8d69b94baad19b7dd283434, type: 3}
+  m_Name: RemoveLife
+  m_EditorClassIdentifier: 
+  itemName: RemoveLife
+  itemSprite: {fileID: 7482667652216324306, guid: 503252893e0c3ab4fb488841c183109f, type: 3}
+  spriteColor: {r: 0.38679248, g: 0.11494304, b: 0.13916221, a: 1}
+  itemType: 3

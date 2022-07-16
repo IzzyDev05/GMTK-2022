@@ -4,6 +4,7 @@ using UnityEngine;
 public class GridSystem : MonoBehaviour
 {
     public List<GameObject> gridPoints = new List<GameObject>();
+    private SpecificItemSpawner specificItemSpawner;
     
     [Header("Items")]
     [SerializeField] private GameObject defaultBlock;
@@ -17,6 +18,7 @@ public class GridSystem : MonoBehaviour
     [SerializeField] private int numberOfItems = 2;
 
     private void Start() {
+        specificItemSpawner = FindObjectOfType<SpecificItemSpawner>();
         SpecifiedInstantiate();
     }
 
@@ -42,9 +44,14 @@ public class GridSystem : MonoBehaviour
         for (int i = 0; i < numberOfItems; i++) {
             randSelect = Random.Range(0, gridPoints.Count);
             var point = gridPoints[randSelect];
+
+            /*
             var obj = Instantiate(itemBlock, point.transform.position, point.transform.rotation, point.transform);
             gridPoints.Remove(gridPoints[randSelect]);
             obj.gameObject.name = "ItemBlock";
+            */
+
+            specificItemSpawner.SpawnItem(point);
         }
     }
 }

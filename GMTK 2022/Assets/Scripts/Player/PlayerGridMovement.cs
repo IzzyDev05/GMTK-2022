@@ -3,11 +3,11 @@ using UnityEngine;
 public class PlayerGridMovement : MonoBehaviour
 {
     public enum PlayerNumber { player1, player2 };
+    [HideInInspector] public bool randomizeMovement = true;
 
     [SerializeField] private int translateValue = 1;
     public PlayerNumber playerNumber;
 
-    private bool randomizeMovement = true;
 
     private void Update() {
         GridMovement();
@@ -53,7 +53,7 @@ public class PlayerGridMovement : MonoBehaviour
         var translate = translateValue;
         var rand = Random.Range(0, 100);
 
-        if (rand >= 50) {
+        if (rand >= 70) {
             translate = translateValue;
         }
         else {

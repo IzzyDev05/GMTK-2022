@@ -4,12 +4,30 @@ public class PlayerCollisionManager : MonoBehaviour
 {
     [HideInInspector] public bool hasWon = false;
     [HideInInspector] public bool isDead = false;
-    [SerializeField] private int numberOfLives = 3;
+    public int numberOfLives = 3;
+    private PlayerGridMovement playerGrid;
+
+    private void Start() {
+        playerGrid = FindObjectOfType<PlayerGridMovement>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         switch (other.gameObject.tag) {
-            case "ItemBlock":
-                print("You got an item");
+            case "NormalMovements":
+                playerGrid.randomizeMovement = false;
+                print("Normal movements");
+                other.gameObject.SetActive(false);
+                break;
+            case "Invincible":
+                numberOfLives = 500;
+                other.gameObject.SetActive(false);
+                break;
+            case "AddLife":
+                numberOfLives++;
+                other.gameObject.SetActive(false);
+                break;
+            case "RemoveLife":
+                numberOfLives--;
                 other.gameObject.SetActive(false);
                 break;
             case "WinBlock":

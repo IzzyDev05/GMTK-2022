@@ -7,6 +7,10 @@ TagManager:
   - ItemBlock
   - ObstacleBlock
   - WinBlock
+  - NormalMovements
+  - Invincible
+  - AddLife
+  - RemoveLife
   layers:
   - Default
   - TransparentFX
