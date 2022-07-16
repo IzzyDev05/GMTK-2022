@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelProgression : MonoBehaviour
 {
     [SerializeField] float waitBeforeProgressing = 2f;
+    [SerializeField] float waitBeforeRestarting = 2f;
 
     private PlayerManager playerManager;
     private GameObject player1;
@@ -20,10 +21,19 @@ public class LevelProgression : MonoBehaviour
         if (player1.GetComponent<PlayerCollisionManager>().hasWon && player2.GetComponent<PlayerCollisionManager>().hasWon) {
             StartCoroutine(LevelWon());
         }
+
+        if (player1.GetComponent<PlayerCollisionManager>().isDead || player2.GetComponent<PlayerCollisionManager>().isDead) {
+            StartCoroutine(LevelLost());
+        }
     }
 
-    IEnumerator LevelWon() {
+    private IEnumerator LevelWon() {
         yield return new WaitForSeconds(waitBeforeProgressing);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private IEnumerator LevelLost() {
+        yield return new WaitForSeconds(waitBeforeRestarting);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

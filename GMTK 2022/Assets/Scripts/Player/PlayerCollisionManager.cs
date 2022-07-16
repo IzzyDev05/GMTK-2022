@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerCollisionManager : MonoBehaviour
 {
     [HideInInspector] public bool hasWon = false;
+    [HideInInspector] public bool isDead = false;
     [SerializeField] private int numberOfLives = 3;
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -27,7 +28,16 @@ public class PlayerCollisionManager : MonoBehaviour
     private void Update() {
         if (numberOfLives <= 0) {
             print(gameObject.name + " is dead!");
-            Destroy(gameObject);
+            isDead = true;
+            DisablePlayer();
         }
+    }
+
+    // Don't destroy player as that gives errors
+    private void DisablePlayer() {
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        this.GetComponent<BoxCollider2D>().enabled = false;
+        this.GetComponent<PlayerGridMovement>().enabled = false;
+        this.enabled = false;
     }
 }
