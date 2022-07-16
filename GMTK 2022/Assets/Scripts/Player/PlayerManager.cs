@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -5,9 +6,38 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
+    private GridSystem gridSystem;
+    private List<GameObject> gridPoints = new List<GameObject>();
+
+    private void Start() {
+        gridSystem = FindObjectOfType<GridSystem>();
+        gridPoints = gridSystem.gridPoints;
+
+        SpawnPlayers();
+    }
+
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
             CastRay();
+        }
+    }
+
+    private void SpawnPlayers() {
+        for (int i = 0; i < 1; i++) {
+            var rand = Random.Range(0, gridPoints.Count);
+
+            if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
+                var p1 = Instantiate(player1, gridPoints[rand].transform.position, Quaternion.identity);
+                player1 = p1;
+            }
+        }
+        for (int i = 0; i < 1; i++) {
+            var rand = Random.Range(0, gridPoints.Count);
+
+            if (!gridPoints[rand].GetComponentInChildren<SpriteRenderer>()) {
+                var p2 = Instantiate(player2, gridPoints[rand].transform.position, Quaternion.identity);
+                player2 = p2;
+            }
         }
     }
 

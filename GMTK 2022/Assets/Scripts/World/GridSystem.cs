@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GridSystem : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> gridPoints = new List<GameObject>();
+    public List<GameObject> gridPoints = new List<GameObject>();
     
     [Header("Items")]
     [SerializeField] private GameObject defaultBlock;
