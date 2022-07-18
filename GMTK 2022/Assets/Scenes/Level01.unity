@@ -736,6 +736,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 417271665357947688, guid: 92f33e9ca0138ef4bb1c8513ce6d204a, type: 3}
+      propertyPath: numberOfItems
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 417271665357947688, guid: 92f33e9ca0138ef4bb1c8513ce6d204a, type: 3}
       propertyPath: gridPoints.Array.data[0]
       value: 
       objectReference: {fileID: 654396718}

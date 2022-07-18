@@ -7,8 +7,13 @@ public class PlayerCollisionManager : MonoBehaviour
     [HideInInspector] public bool hasWon = false;
     [HideInInspector] public bool isDead = false;
 
-    [SerializeField] private GameObject hitParticles;
     [SerializeField] private GameObject itemParticles;
+    [SerializeField] private Sprite apple;
+    [SerializeField] private Sprite potion;
+    [SerializeField] private Sprite gears;
+    [SerializeField] private Sprite shield;
+
+    [SerializeField] private GameObject hitParticles;
     [SerializeField] private GameObject winParticles;
     public int numberOfLives = 3;
 
@@ -27,22 +32,25 @@ public class PlayerCollisionManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         switch (other.gameObject.tag) {
             case "NormalMovements":
+                print("Normal");
                 playerGrid.randomizeMovement = false;
                 audioManager.Play("NormalMovement");
-                PlayItemParticles();
+                PlayItemParticles(other);
                 camShake.ShakeCamera();
                 other.gameObject.SetActive(false);
                 break;
             case "Invincible":
+                print("Invincible");
                 numberOfLives = 500;
-                PlayItemParticles();
+                PlayItemParticles(other);
                 camShake.ShakeCamera();
                 audioManager.Play("Invincible");
                 other.gameObject.SetActive(false);
                 break;
             case "AddLife":
+                print("+1 Life");
                 numberOfLives++;
-                PlayItemParticles();
+                PlayItemParticles(other);
                 camShake.ShakeCamera();
 
                 var rand = Random.Range(0, 10);
@@ -56,8 +64,9 @@ public class PlayerCollisionManager : MonoBehaviour
                 other.gameObject.SetActive(false);
                 break;
             case "RemoveLife":
+                print("-1 Life");
                 numberOfLives--;
-                PlayHitParticles();
+                PlayItemParticles(other);
                 camShake.ShakeCamera();
                 audioManager.Play("Hurt2");
                 other.gameObject.SetActive(false);
@@ -89,10 +98,27 @@ public class PlayerCollisionManager : MonoBehaviour
         }
     }
 
-    private void PlayItemParticles() {
+    private void PlayItemParticles(Collider2D other) {
         var randOffsetX = Random.Range(0, 0.1f);
         var randOffsetY = Random.Range(0, 0.1f);
         var pos = this.transform.position + new Vector3(randOffsetX, randOffsetY, 0);
+
+        var particles = itemParticles.GetComponent<ParticleSystem>().textureSheetAnimation;
+        switch (other.gameObject.tag) {
+            case "NormalMovements":
+                particles.SetSprite(0, gears);
+                break;
+            case "Invincible":
+                particles.SetSprite(0, shield);
+                break;
+            case "AddLife":
+                particles.SetSprite(0, apple);
+                break;
+            case "RemoveLife":
+                particles.SetSprite(0, potion);
+                break;
+        }
+
         Instantiate(itemParticles, pos, Quaternion.identity);
     }
 

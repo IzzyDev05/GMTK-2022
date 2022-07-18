@@ -24,8 +24,6 @@ public class SpecificItemSpawner : MonoBehaviour
     }
 
     public void SpawnItem(GameObject point) {
-        var obj = Instantiate(itemBase, point.transform.position, Quaternion.identity, point.transform);
-
         var rand = Random.Range(0, 100);
         if (rand <= 10) {
             itemType = 1;
@@ -41,9 +39,8 @@ public class SpecificItemSpawner : MonoBehaviour
         }
 
         item = itemScriptableObject[itemType];
+        var obj = Instantiate(item.itemPrefab, point.transform.position, Quaternion.identity, point.transform);
         obj.gameObject.name = item.itemName;
-        obj.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
-        obj.GetComponent<SpriteRenderer>().color = item.spriteColor;
         obj.gameObject.tag = item.name;
     }
 }

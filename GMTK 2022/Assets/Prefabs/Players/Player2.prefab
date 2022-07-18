@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 517212509
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 503252893e0c3ab4fb488841c183109f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -162,7 +162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasWon: 0
   isDead: 0
-  hitParticles: {fileID: 4408242534782427896, guid: db44b7242e80ce1478bd528b7d3d01b9, type: 3}
   itemParticles: {fileID: 4408242534782427896, guid: c99c8a261f3a00746a7124464bcaa605, type: 3}
+  apple: {fileID: 21300000, guid: 83cc0d1a12dd41440860779fa5a17ca5, type: 3}
+  potion: {fileID: 21300000, guid: 18d7d0983137fc34d96b5d65cbc56f41, type: 3}
+  gears: {fileID: 21300000, guid: 2d42021b1acb38249abb80801ee6ba8e, type: 3}
+  shield: {fileID: 21300000, guid: 772a2feaf3655c0449fc4e7442240174, type: 3}
+  hitParticles: {fileID: 4408242534782427896, guid: db44b7242e80ce1478bd528b7d3d01b9, type: 3}
   winParticles: {fileID: 4408242534782427896, guid: 9acfd3c45268e484ebca5873c85116f1, type: 3}
   numberOfLives: 3

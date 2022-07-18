@@ -11,7 +11,8 @@ public enum Itemtype {
 public class ItemTypesSO : ScriptableObject
 {
     public string itemName;
-    public Sprite itemSprite;
-    public Color spriteColor;
+    //public Sprite itemSprite;
+    //public Color spriteColor;
+    public GameObject itemPrefab;
     public Itemtype itemType;    
 }

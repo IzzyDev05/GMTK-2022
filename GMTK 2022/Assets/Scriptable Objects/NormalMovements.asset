@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: NormalMovements
   m_EditorClassIdentifier: 
   itemName: NormalMovements
-  itemSprite: {fileID: 7482667652216324306, guid: 503252893e0c3ab4fb488841c183109f, type: 3}
-  spriteColor: {r: 1, g: 0.97145116, b: 0, a: 1}
+  itemPrefab: {fileID: 5666897030120536040, guid: 755a5cb1c28769b44b3de402f1f05f3a, type: 3}
   itemType: 0

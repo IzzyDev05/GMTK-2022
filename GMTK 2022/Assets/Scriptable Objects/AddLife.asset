@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: AddLife
   m_EditorClassIdentifier: 
   itemName: AddLife
-  itemSprite: {fileID: 7482667652216324306, guid: 503252893e0c3ab4fb488841c183109f, type: 3}
-  spriteColor: {r: 0.3718593, g: 1, b: 0, a: 1}
+  itemPrefab: {fileID: 8534228841350196146, guid: 32765a0c245bdd3429175d0c46b751e7, type: 3}
   itemType: 2

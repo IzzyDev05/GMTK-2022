@@ -230,6 +230,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 417271665357947688, guid: 92f33e9ca0138ef4bb1c8513ce6d204a, type: 3}
+      propertyPath: numberOfItems
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 417271665357947688, guid: 92f33e9ca0138ef4bb1c8513ce6d204a, type: 3}
+      propertyPath: numberOfObstacles
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 417271665357947688, guid: 92f33e9ca0138ef4bb1c8513ce6d204a, type: 3}
       propertyPath: gridPoints.Array.size
       value: 77
       objectReference: {fileID: 0}

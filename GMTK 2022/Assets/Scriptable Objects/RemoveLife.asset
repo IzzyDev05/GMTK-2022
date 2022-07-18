@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: RemoveLife
   m_EditorClassIdentifier: 
   itemName: RemoveLife
-  itemSprite: {fileID: 7482667652216324306, guid: 503252893e0c3ab4fb488841c183109f, type: 3}
-  spriteColor: {r: 0.38679248, g: 0.11494304, b: 0.13916221, a: 1}
+  itemPrefab: {fileID: 1595809515298918729, guid: 0ddb7f8de7851df4ca2118e77192b397, type: 3}
   itemType: 3

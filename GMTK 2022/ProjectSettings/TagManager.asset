@@ -48,3 +48,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4290966171
+    locked: 0
+  - name: Items
+    uniqueID: 3019480891
+    locked: 0
+  - name: Player
+    uniqueID: 517212509
+    locked: 0
+  - name: MainBlocks
+    uniqueID: 2167437727
+    locked: 0
+  - name: Particles
+    uniqueID: 2662066339
+    locked: 0
+  - name: Foreground
+    uniqueID: 130320671
+    locked: 0

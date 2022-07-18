@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Invincible
   m_EditorClassIdentifier: 
   itemName: Invincible
-  itemSprite: {fileID: 7482667652216324306, guid: 503252893e0c3ab4fb488841c183109f, type: 3}
-  spriteColor: {r: 1, g: 0, b: 0.41492462, a: 1}
+  itemPrefab: {fileID: 4991477654369615767, guid: fc84d6cb72af54c41b666c1b0a85bafc, type: 3}
   itemType: 1
